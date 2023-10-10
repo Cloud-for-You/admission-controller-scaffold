@@ -30,7 +30,11 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
+	"sigs.k8s.io/controller-runtime/pkg/webhook"
+
 	//+kubebuilder:scaffold:imports
+
+	webhookadmission "github.com/cloud-for-you/generic-webhook-controller/admission"
 )
 
 var (
@@ -95,6 +99,11 @@ func main() {
 		setupLog.Error(err, "unable to set up ready check")
 		os.Exit(1)
 	}
+
+	setupLog.Info("setting up webhook server")
+	hookServer := mgr.GetWebhookServer()
+	setupLog.Info("registering generic validating webhook endpoint")
+	hookServer.Register("/validate/pdb", &webhook.Admission{Handler: &webhookadmission.GenericValidator{Client: mgr. GetClient()}})
 
 	setupLog.Info("starting manager")
 	if err := mgr.Start(ctrl.SetupSignalHandler()); err != nil {
