@@ -34,7 +34,7 @@ import (
 
 	//+kubebuilder:scaffold:imports
 
-	webhookadmission "github.com/cloud-for-you/generic-webhook-controller/admission"
+	webhookadmission "github.com/Cloud-for-You/generic-webhook-controller/admission"
 )
 
 var (
@@ -100,10 +100,12 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Configure Web server for admission webhook
 	setupLog.Info("setting up webhook server")
 	hookServer := mgr.GetWebhookServer()
-	setupLog.Info("registering generic validating webhook endpoint")
-	hookServer.Register("/validate/pdb", &webhook.Admission{Handler: &webhookadmission.GenericValidator{Client: mgr. GetClient()}})
+	setupLog.Info("registering admission webhook endpoint")
+	// Routing paths to functions
+	hookServer.Register("/sample", &webhook.Admission{Handler: &webhookadmission.Sample{Client: mgr.GetClient()}})
 
 	setupLog.Info("starting manager")
 	if err := mgr.Start(ctrl.SetupSignalHandler()); err != nil {
