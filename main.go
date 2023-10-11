@@ -34,7 +34,7 @@ import (
 
 	//+kubebuilder:scaffold:imports
 
-	webhookadmission "github.com/Cloud-for-You/admission-controller-scaffold/admission"
+	webhookadmission "github.com/Cloud-for-You/admission-controller-scaffold/admissions"
 )
 
 var (
