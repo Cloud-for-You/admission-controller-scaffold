@@ -8,6 +8,6 @@ layout:
 plugins:
   manifests.sdk.operatorframework.io/v2: {}
   scorecard.sdk.operatorframework.io/v2: {}
-projectName: generic-webhook-controller
-repo: github.com/Cloud-for-You/generic-webhook-controller
+projectName: admission-controller-scaffold
+repo: github.com/Cloud-for-You/admission-controller-scaffold
 version: "3"

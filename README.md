@@ -1,4 +1,4 @@
-# generic-webhook-controller
+# admission-controller-scaffold
 
 Source: https://developers.redhat.com/articles/2021/09/17/kubernetes-admission-control-validating-webhooks#bootstrap_with_the_operator_sdk
 
@@ -6,7 +6,7 @@ Source: https://developers.redhat.com/articles/2021/09/17/kubernetes-admission-c
 
 ### Generate controller scaffold
 ```bash
-$ operator-sdk init --domain cfy.cz --repo github.com/Cloud-for-You/generic-webhook-controller
+$ operator-sdk init --domain cfy.cz --repo github.com/Cloud-for-You/admission-controller-scaffold
 ```
 
 ### Configure router / Add path

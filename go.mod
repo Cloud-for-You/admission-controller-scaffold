@@ -1,4 +1,4 @@
-module github.com/Cloud-for-You/generic-webhook-controller
+module github.com/Cloud-for-You/admission-controller-scaffold
 
 go 1.19
 
