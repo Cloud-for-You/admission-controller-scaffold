@@ -10,7 +10,7 @@ metadata:
 apiVersion: v1
 kind: Endpoints
 metadata:
-  name: generic-kubernetes-webhook
+  name: sample-kubernetes-webhook
   namespace: local-testing-operator-sdk
 subsets:
   - addresses:
@@ -24,8 +24,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.beta.openshift.io/serving-cert-secret-name: generic-kubernetes-webhook
-  name: generic-kubernetes-webhook
+    service.beta.openshift.io/serving-cert-secret-name: sample-kubernetes-webhook
+  name: sample-kubernetes-webhook
   namespace: local-testing-operator-sdk
 spec:
   ports:
